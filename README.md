@@ -110,3 +110,10 @@ Código independente inspirado em problemas resolvidos no Nexus, projeto de Rodr
 Truncamento UTF-8 preserva extensões e caracteres completos. `maxLen` mede bytes; não elimina colisões ou symlinks.
 
 Exemplo executável com dados sintéticos: `node examples/uso.mjs`.
+
+
+## ☕ Apoie este trabalho
+
+Se este projeto te ajudou, considere me pagar um café. Qualquer valor é bem-vindo, e seu comentário também ajuda.
+
+[![Apoiar com Pix](assets/support/pix-pt-br.svg)](SUPPORT.md)
