@@ -1,0 +1,32 @@
+{
+  "name": "nome-seguro",
+  "version": "1.0.0",
+  "description": "Sanitização segura de nomes de arquivo para Node.js — contra path traversal, byte nulo, nomes reservados do Windows e sufixos de download. Zero dependências.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "files": ["src"],
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "filename",
+    "sanitize",
+    "sanitization",
+    "security",
+    "path-traversal",
+    "upload",
+    "seguranca",
+    "nome-arquivo",
+    "windows-reserved"
+  ],
+  "author": "Rodrigo Rodrigues",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techrodrigo21-ux/nome-seguro.git"
+  }
+}
