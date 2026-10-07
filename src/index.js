@@ -28,6 +28,17 @@ const extDe = (nome) => {
   const ponto = nome.lastIndexOf('.');
   return ponto > 0 ? nome.slice(ponto) : '';
 };
+const encoder = new TextEncoder();
+const tamanho = (s) => encoder.encode(s).length;
+function cortarUTF8(s, limite) {
+  let bytes = 0, saida = '';
+  for (const caractere of s) {
+    bytes += tamanho(caractere);
+    if (bytes > limite) break;
+    saida += caractere;
+  }
+  return saida;
+}
 
 /**
  * Remove o sufixo de cópia do download repetido do navegador — inclusive
@@ -77,16 +88,14 @@ export function nomeSeguro(nome, opcoes = {}) {
 
   // 3) nome de dispositivo reservado do Windows → prefixa
   const ext = extDe(s);
-  const base = ext ? s.slice(0, -ext.length) : s;
   if (RESERVADOS.test(s)) s = `_${s}`;
 
   // 4) limite de tamanho preservando a extensão
-  if (s.length > maxLen) {
-    const e = extDe(s);
-    s = e.length < maxLen ? s.slice(0, maxLen - e.length).replace(/[.\s]+$/, '') + e : s.slice(0, maxLen);
+  if (tamanho(s) > maxLen) {
+    const e = extDe(s), orcamento = maxLen - tamanho(e);
+    const b = e && orcamento > 0 ? cortarUTF8(s.slice(0, -e.length), orcamento).replace(/[.\s]+$/, '') : '';
+    s = b ? b + e : cortarUTF8(s, maxLen);
   }
-  // maxLen é também o teto em bytes UTF-8 (sistemas de arquivo contam bytes).
-  while (new TextEncoder().encode(s).length > maxLen) s = Array.from(s).slice(0, -1).join('');
   s = s.replace(/[.\s]+$/, '').replace(/^[.\-\s]+/, '');
   if (RESERVADOS.test(s)) s = (`_${s}`).slice(0, maxLen);
   if (!s) {

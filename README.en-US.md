@@ -44,3 +44,10 @@ Sanitized fallback, multi-extension reserved names and UTF-8 limits.
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Voluntary support](SUPPORT.md)
 
 MIT © Rodrigo Rodrigues
+
+
+## Practical use — 1.2.0
+
+UTF-8 truncation preserves extensions and complete characters. `maxLen` counts bytes; it does not prevent collisions or symlinks.
+
+Runnable example with synthetic data: `node examples/uso.mjs`.
