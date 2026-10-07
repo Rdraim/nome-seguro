@@ -15,7 +15,7 @@ npm test
 node tools/check-public-content.mjs
 ```
 
-These imports work from the cloned repository root. To use the module in another project, install a pinned Git tag or copy the module while retaining the MIT license. This documentation does not claim an npm registry release.
+These imports work from the cloned repository root. To use the module in another project, install a pinned Git tag (v1.2.0) or copy the module while retaining the MIT license. This documentation does not claim an npm registry release.
 
 ```js
 import { nomeSeguro, limparSufixoCopia } from './src/index.js';
@@ -37,10 +37,17 @@ Public function and option names remain in Portuguese for compatibility.
 
 These standalone modules are inspired by work on Nexus, Rodrigo Rodrigues's independent project. They contain no private database, deployment configuration, logs, credentials or user records. Coordinated maintenance means reviewing related changes in the same release cycle, not automatically copying private source files.
 
-## Version 1.1.0
+## Security and compatibility
 
 Sanitized fallback, multi-extension reserved names and UTF-8 limits.
 
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Voluntary support](SUPPORT.md)
 
 MIT © Rodrigo Rodrigues
+
+
+## Practical use — 1.2.0
+
+UTF-8 truncation preserves extensions and complete characters. `maxLen` counts bytes; it does not prevent collisions or symlinks.
+
+Runnable example with synthetic data: `node examples/uso.mjs`.
