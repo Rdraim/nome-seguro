@@ -1,5 +1,15 @@
 # nome-seguro
 
+[English (United States)](README.en-US.md) · [Apoio voluntário](SUPPORT.md)
+
+## Revisão 1.1.0
+
+Fallback sanitizado, nomes reservados com múltiplas extensões e limite UTF-8.
+
+`maxLen` é inteiro de 1 a 255 e limita também bytes UTF-8. O nome padrão passa pela mesma limpeza. Extensões são preservadas quando cabem. Use identificadores aleatórios para evitar colisões e criação exclusiva de arquivos; confira confinamento e links simbólicos no destino. Um nome limpo não torna o conteúdo do upload confiável.
+
+Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.1.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
+
 Sanitização **segura** de nomes de arquivo para Node.js. Um nome vindo de fora
 (upload, corpo de requisição, importação) é dado não confiável — este módulo o
 transforma num nome de **um único segmento**, seguro para gravar em disco.
@@ -22,13 +32,15 @@ Gravar em disco um nome que o usuário controla abre uma porta conhecida:
 ## Instalação
 
 ```bash
-npm install nome-seguro
+git clone https://github.com/techrodrigo21-ux/nome-seguro.git
+cd nome-seguro
+npm test
 ```
 
 ## Uso
 
 ```js
-import { nomeSeguro, limparSufixoCopia } from 'nome-seguro';
+import { nomeSeguro, limparSufixoCopia } from './src/index.js';
 
 nomeSeguro('../../.env');                 // 'env'
 nomeSeguro('rela:to*rio?.txt');           // 'rela-to-rio-.txt'
@@ -44,10 +56,10 @@ Exemplo com Express + upload:
 
 ```js
 import path from 'node:path';
-import { nomeSeguro } from 'nome-seguro';
+import { nomeSeguro } from './src/index.js';
 
 const destino = path.join(PASTA_UPLOADS, nomeSeguro(req.body.nome));
-// destino é garantidamente UM arquivo dentro de PASTA_UPLOADS
+// Confira confinamento, colisões e links simbólicos antes de gravar.
 ```
 
 ## API
@@ -85,3 +97,9 @@ dado do sistema de origem acompanha o código — é lógica pura.
 ## Licença
 
 MIT © Rodrigo Rodrigues
+
+## Manutenção e apoio
+
+Código independente inspirado em problemas resolvidos no Nexus, projeto de Rodrigo Rodrigues. Não inclui banco, configuração privada, logs, dados de usuários ou credenciais. Evolução coordenada significa revisar mudanças relacionadas no mesmo ciclo; não há cópia automática de arquivos privados.
+
+[Como contribuir](CONTRIBUTING.md) · [Segurança](SECURITY.md) · [Apoio voluntário](SUPPORT.md)

@@ -1,13 +1,17 @@
 {
   "name": "nome-seguro",
-  "version": "1.0.0",
-  "description": "Sanitização segura de nomes de arquivo para Node.js — contra path traversal, byte nulo, nomes reservados do Windows e sufixos de download. Zero dependências.",
+  "version": "1.1.0",
+  "description": "Sanitize a filename into one safe path segment, with Windows reserved-name handling and a UTF-8 byte limit.",
   "type": "module",
   "main": "src/index.js",
   "exports": "./src/index.js",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "check:public": "node tools/check-public-content.mjs",
+    "check": "node --check src/index.js"
   },
   "keywords": [
     "filename",
@@ -23,7 +27,7 @@
   "author": "Rodrigo Rodrigues",
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "repository": {
     "type": "git",
