@@ -6,6 +6,10 @@
 
 # nome-seguro
 
+<!-- public-badges:start -->
+[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/nome-seguro/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/nome-seguro/releases)
+<!-- public-badges:end -->
+
 Limpieza de nombres de archivo para obtener un único segmento de ruta, con tratamiento de nombres reservados de Windows y límite de bytes UTF-8.
 
 ## Empezá acá

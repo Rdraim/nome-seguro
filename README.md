@@ -6,6 +6,10 @@
 
 # nome-seguro
 
+<!-- public-badges:start -->
+[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/nome-seguro/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/nome-seguro/releases)
+<!-- public-badges:end -->
+
 ## Segurança e compatibilidade
 
 Fallback sanitizado, nomes reservados com múltiplas extensões e limite UTF-8.
