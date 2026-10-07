@@ -45,7 +45,7 @@ These standalone modules are inspired by work on Nexus, Rodrigo Rodrigues's inde
 
 Sanitized fallback, multi-extension reserved names and UTF-8 limits.
 
-[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+[Contributing](CONTRIBUTING.en-US.md) · [Security](SECURITY.en-US.md)
 
 MIT © Rodrigo Rodrigues
 

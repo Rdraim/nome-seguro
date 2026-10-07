@@ -6,10 +6,10 @@
 
 # 1.2.0 — 2026-10-07
 
-Truncamento UTF-8 preserva extensões e caracteres completos. `maxLen` mede bytes; não elimina colisões ou symlinks.
+El recorte UTF-8 conserva extensiones y caracteres completos. `maxLen` cuenta bytes; no impide colisiones ni enlaces simbólicos.
 
 # 1.1.0 — 2026-10-07
 
-Fallback sanitizado, nomes reservados com múltiplas extensões e limite UTF-8.
+Nombre alternativo limpio, nombres reservados con varias extensiones y límites UTF-8.
 
-Documentação PT-BR/EN-US, apoio voluntário ainda sem canal de pagamento e verificações de publicação.
+Documentación en portugués brasileño e inglés de Estados Unidos, apoyo voluntario todavía sin canal de pago en esa versión y verificaciones de publicación.
