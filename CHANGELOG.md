@@ -6,6 +6,10 @@
 
 # 1.2.0 — 2026-10-07
 
+## 1.2.1 — 2026-10-07
+
+Identidade Rdraim, apresentação gráfica, revisão de compatibilidade e guarda do histórico mais eficiente. API de runtime preservada.
+
 Truncamento UTF-8 preserva extensões e caracteres completos. `maxLen` mede bytes; não elimina colisões ou symlinks.
 
 # 1.1.0 — 2026-10-07
