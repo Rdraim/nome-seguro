@@ -13,12 +13,12 @@
 
 /* Nomes de dispositivo reservados do Windows (case-insensitive), com ou sem
    extensão. Gravar "CON.txt" quebra em Windows. */
-const RESERVADOS = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i;
+const RESERVADOS = /^(con|prn|aux|nul|conin\$|conout\$|com[1-9¹²³]|lpt[1-9¹²³])(?:[. ]|$)/i;
 
 /* Caracteres proibidos em nome de arquivo no Windows + controles (0x00–0x1F).
    A barra e a contrabarra entram aqui só por segurança: o split de caminho
    abaixo já tira qualquer separador antes. */
-const PROIBIDOS = /[<>:"/\\|?*\u0000-\u001f]/g;
+const PROIBIDOS = /[<>:"/\\|?*\u0000-\u001f\u007f-\u009f\u202a-\u202e\u2066-\u2069]/g;
 
 /* Sufixo que o navegador acrescenta no download repetido: " (1)", " (12)"…
    Quatro dígitos (um ano "(2025)") NÃO é sufixo de cópia e é preservado. */
@@ -59,6 +59,7 @@ export function limparSufixoCopia(nome) {
  */
 export function nomeSeguro(nome, opcoes = {}) {
   const { padrao = 'arquivo', maxLen = 200, limparCopia = true, normalizar = true } = opcoes;
+  if (!Number.isSafeInteger(maxLen) || maxLen < 1 || maxLen > 255) throw new TypeError('maxLen precisa ser inteiro entre 1 e 255');
 
   // 1) só o último trecho: "../../.env" ou "C:\segredo" nunca vira caminho
   let s = String(nome ?? '').split(/[\\/]/).pop() ?? '';
@@ -77,15 +78,22 @@ export function nomeSeguro(nome, opcoes = {}) {
   // 3) nome de dispositivo reservado do Windows → prefixa
   const ext = extDe(s);
   const base = ext ? s.slice(0, -ext.length) : s;
-  if (RESERVADOS.test(base)) s = `_${s}`;
+  if (RESERVADOS.test(s)) s = `_${s}`;
 
   // 4) limite de tamanho preservando a extensão
   if (s.length > maxLen) {
     const e = extDe(s);
-    s = s.slice(0, Math.max(1, maxLen - e.length)).replace(/[.\s]+$/, '') + e;
+    s = e.length < maxLen ? s.slice(0, maxLen - e.length).replace(/[.\s]+$/, '') + e : s.slice(0, maxLen);
   }
-
-  return s || padrao;
+  // maxLen é também o teto em bytes UTF-8 (sistemas de arquivo contam bytes).
+  while (new TextEncoder().encode(s).length > maxLen) s = Array.from(s).slice(0, -1).join('');
+  s = s.replace(/[.\s]+$/, '').replace(/^[.\-\s]+/, '');
+  if (RESERVADOS.test(s)) s = (`_${s}`).slice(0, maxLen);
+  if (!s) {
+    // O fallback é entrada não confiável também, e nunca retorna um caminho.
+    return nomeSeguro(String(padrao || 'arquivo'), { ...opcoes, padrao: 'a', maxLen, limparCopia, normalizar });
+  }
+  return s;
 }
 
 export default nomeSeguro;
