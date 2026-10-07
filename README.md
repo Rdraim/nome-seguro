@@ -2,13 +2,13 @@
 
 [English (United States)](README.en-US.md) · [Apoio voluntário](SUPPORT.md)
 
-## Revisão 1.1.0
+## Segurança e compatibilidade
 
 Fallback sanitizado, nomes reservados com múltiplas extensões e limite UTF-8.
 
 `maxLen` é inteiro de 1 a 255 e limita também bytes UTF-8. O nome padrão passa pela mesma limpeza. Extensões são preservadas quando cabem. Use identificadores aleatórios para evitar colisões e criação exclusiva de arquivos; confira confinamento e links simbólicos no destino. Um nome limpo não torna o conteúdo do upload confiável.
 
-Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.1.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
+Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.2.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
 
 Sanitização **segura** de nomes de arquivo para Node.js. Um nome vindo de fora
 (upload, corpo de requisição, importação) é dado não confiável — este módulo o
