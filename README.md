@@ -7,7 +7,7 @@
 # nome-seguro
 
 <!-- public-badges:start -->
-[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/nome-seguro/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/nome-seguro/releases)
+[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/nome-seguro/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/nome-seguro/releases) [![Git](assets/support/badge-git.svg)](https://github.com/Rdraim/nome-seguro/commits/main)
 <!-- public-badges:end -->
 
 ## Segurança e compatibilidade
