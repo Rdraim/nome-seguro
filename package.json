@@ -1,6 +1,6 @@
 {
   "name": "nome-seguro",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Sanitize a filename into one safe path segment, with Windows reserved-name handling and a UTF-8 byte limit.",
   "type": "module",
   "main": "src/index.js",
@@ -32,6 +32,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techrodrigo21-ux/nome-seguro.git"
+    "url": "git+https://github.com/Rdraim/nome-seguro.git"
   }
 }

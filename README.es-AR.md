@@ -13,13 +13,13 @@ Limpieza de nombres de archivo para obtener un único segmento de ruta, con trat
 Necesitás Git y Node.js 22+ para las pruebas. Sin dependencias de ejecución. Descargá este repositorio; no instales un paquete homónimo sin verificar del registro npm.
 
 ```sh
-git clone https://github.com/techrodrigo21-ux/nome-seguro.git
+git clone https://github.com/Rdraim/nome-seguro.git
 cd nome-seguro
 npm test
 node tools/check-public-content.mjs
 ```
 
-Las importaciones del ejemplo funcionan desde la raíz del repositorio clonado. Para usar el módulo en otro proyecto, fijá una revisión Git (tag v1.2.0) o copiá el módulo conservando la licencia MIT. Esta documentación no afirma que exista una publicación en el registro npm.
+Las importaciones del ejemplo funcionan desde la raíz del repositorio clonado. Para usar el módulo en otro proyecto, fijá una revisión Git (tag v1.2.1) o copiá el módulo conservando la licencia MIT. Esta documentación no afirma que exista una publicación en el registro npm.
 
 ```js
 import { nomeSeguro, limparSufixoCopia } from './src/index.js';
@@ -69,7 +69,7 @@ Soy **Rodrigo Rodrigues**, creador de **Nexus** y de estos proyectos de código 
 
 **Aportá el monto que tenga sentido para vos. El apoyo es totalmente voluntario; el proyecto sigue siendo gratuito bajo la licencia MIT.**
 
-[Apoyá con Pix](#apoyá-con-pix) · [Dejá un comentario](https://github.com/techrodrigo21-ux/nome-seguro/issues/new?title=Comentario%3A%20este%20proyecto%20me%20ayud%C3%B3)
+[Apoyá con Pix](#apoyá-con-pix) · [Dejá un comentario](https://github.com/Rdraim/nome-seguro/issues/new?title=Comentario%3A%20este%20proyecto%20me%20ayud%C3%B3)
 
 ### Apoyá con Pix
 
@@ -89,7 +89,7 @@ Pix es el sistema de pagos de Brasil. Si tu banco no lo admite, también podés 
 
 ### Tu comentario también suma
 
-[Contame cómo te ayudó el proyecto](https://github.com/techrodrigo21-ux/nome-seguro/issues/new?title=Comentario%3A%20este%20proyecto%20me%20ayud%C3%B3). Me gustaría saber qué creaste, qué aprendiste y qué podría ser más claro para quienes recién empiezan.
+[Contame cómo te ayudó el proyecto](https://github.com/Rdraim/nome-seguro/issues/new?title=Comentario%3A%20este%20proyecto%20me%20ayud%C3%B3). Me gustaría saber qué creaste, qué aprendiste y qué podría ser más claro para quienes recién empiezan.
 
 Los comentarios son bienvenidos con o sin donación. Cuidá tu privacidad: no publiques comprobantes de pago, datos personales, credenciales ni información privada de usuarios en las Issues.
 
